@@ -1,6 +1,6 @@
-n=3 
 
-def generateParenthesis( n: int) -> list[str]:
+
+def generateParenthesis( n: int=3) -> list[str]:
 	def dfs(left, right, s):
 		if left==3 and right==3:
 			res.append(s)
@@ -15,6 +15,8 @@ def generateParenthesis( n: int) -> list[str]:
 	res = []
 	dfs(0, 0, '')
 	return res
-print(generateParenthesis(n))
-    
+print(generateParenthesis())
+'''
+>>>['((()))', '(()())', '(())()', '()(())', '()()()']
+'''    
     
