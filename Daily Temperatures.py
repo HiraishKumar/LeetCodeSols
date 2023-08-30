@@ -1,4 +1,4 @@
-temperatures = [73,74,75,71,69,72,76,73]
+temperatures = [5, 6, 7, 3, 1, 4, 8, 5]
 '''[1,1,4,2,1,1,0,0]'''
 def DailyTemprateures(temperatures:list[int])->list[int]:
     stack = []
@@ -12,6 +12,3 @@ def DailyTemprateures(temperatures:list[int])->list[int]:
     return ans
 print(DailyTemprateures(temperatures))
 
-
-
-                
