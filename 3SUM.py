@@ -15,7 +15,7 @@ def threeSum(nums: list[int]) -> list[list[int]]:
                 input=(nums[i],nums[j],nums[k])
                 s.add(input)  
                 j+=1
-                k-=1
+
           
             elif target > 0:
                 k-=1
