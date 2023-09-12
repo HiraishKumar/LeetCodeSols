@@ -27,6 +27,7 @@ def searchMatrix( matrix: list[list[int]], target: int) -> bool:
         else:   
             left = middle + 1
             
+# this is kinda janky i know
 print(searchMatrix(matrix,target))       
     
 
