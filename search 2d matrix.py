@@ -28,6 +28,7 @@ def searchMatrix( matrix: list[list[int]], target: int) -> bool:
             left = middle + 1
             
 # this is kinda janky i know
+# ists is what ists is 
 print(searchMatrix(matrix,target))       
     
 
