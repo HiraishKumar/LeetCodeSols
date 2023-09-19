@@ -22,5 +22,7 @@ def threeSum(nums: list[int]) -> list[list[int]]:
     return [list(i) for i in s]    
           
 print(threeSum(nums))    
+
+##BRUH##
                 
             
