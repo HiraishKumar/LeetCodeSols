@@ -23,6 +23,6 @@ def threeSum(nums: list[int]) -> list[list[int]]:
           
 print(threeSum(nums))    
 
-##BRUH##
+
                 
             
