@@ -1,26 +1,25 @@
-s1='ab'
-s2='eidboaoo'
+s1='adc'
+s2='dcda'
 
 def checkInclusion(s1: str, s2: str) -> bool:
+    hash={chr(97 + i): 0 for i in range(26)}
+    test={chr(97 + i): 0 for i in range(26)} 
+    for i in s1:
+        hash[i]+=1
     left=0
-    right=0
-    for i in range(len(s2)):
-        if s2[i] in s1:
-            test=[i for i in s1] 
-            left=i
-            right=i 
-            test.remove(s2[i])          
-            while left <= right:                
-                if not test:
-                    return True
-                elif left > 0 and (s2[left-1] in test):
-                    left-=1
-                    test.remove(s2[left]) 
-                elif right < len(s2)-1 and (s2[right+1] in test):
-                    right+=1
-                    test.remove(s2[right])
-                else:
-                    break
-    return False                 
+    right=len(s1)
+       
+    for j in range(right):
+        test[s2[j]]+=1
+    for k in range(right,len(s2)):
+        if hash==test:
+            return True
+        else:
+            right=k
+            test[s2[right]]+=1        
+            test[s2[left]]-=1
+            left+=1
+    return hash == test   
+    
                 
 print(checkInclusion(s1,s2))
