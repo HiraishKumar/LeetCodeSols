@@ -20,6 +20,7 @@ def reorderList(head: [ListNode]) -> None:
         prev=second
         second=temp
     first, second= head, prev
+    # merging first and second half
     while second:
         temp1,temp2=first.next,second.next
         first.next=second
