@@ -13,7 +13,8 @@ def diameterOfBinaryTree(root:[TreeNode]) -> int:
         left=dfs(root.left)
         right=dfs(root.right)
         res[0]=max(left+right+2,res[0])
-        return 1+max(left,right)
+        return 1+max(left,right)  ## 
+    
     dfs(root)
     return res[0]
 
