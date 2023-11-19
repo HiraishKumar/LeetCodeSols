@@ -16,6 +16,8 @@ def minWindow( s: str, t: str) -> str:
         if c in count and window[c]==count[c]:
             have +=1
         while have == need:           
+            
+            
             if (r - l + 1) < lenmax:
                 lent = [l, r]
                 lenmax = r - l + 1
