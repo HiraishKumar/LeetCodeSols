@@ -42,6 +42,7 @@ class LRUCache:
             self.remove(lru)
             del self.cache[lru.key]
     
+    
 obj=LRUCache(2)
 print(obj.put(1,1))
 print(obj.put(2,2))
@@ -103,3 +104,4 @@ print(obj.get(4))
 #         poin.next=Node(key,value)
 #         self.load+=1
 #         return 
+
