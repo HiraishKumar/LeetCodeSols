@@ -23,5 +23,4 @@ def convert(s:str,r:int):
 
 print(convert(string,3))
         
-#PINALSIGYAHRPI 
-#PINALSIGYAHRPI          
+         

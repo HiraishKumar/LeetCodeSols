@@ -17,3 +17,9 @@ class Solution:
         
         return res
             
+lst = [2,3,4]
+
+test = Solution()
+
+print(test.permute(lst))
+
