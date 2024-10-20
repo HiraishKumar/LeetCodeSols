@@ -33,6 +33,7 @@ def ParseBoolean(expression:str)->bool:
             elif operand == "!":
                 exp.append(NOT(sub_exp))
     return exp[0] == "t"
+
 print(ParseBoolean(test_string1))
 print(ParseBoolean(test_string2))
 print(ParseBoolean(test_string3))
