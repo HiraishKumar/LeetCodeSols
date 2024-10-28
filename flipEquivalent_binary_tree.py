@@ -10,3 +10,6 @@ class Solution:
                     (checker(node_1.right, node_2.right) or checker(node_1.right, node_2.left)))
         
         return checker(root1, root2)
+
+
+        
