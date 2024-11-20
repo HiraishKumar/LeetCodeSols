@@ -1,30 +1,30 @@
-array1 = [2, 3, 5, 7, 9]
-array2 = [1, 2, 4, 6]
+array1 = [1,2,3,0,0,0]
+array2 = [2,5,6] 
 
 def merge( nums1: list[int], m: int, nums2: list[int], n: int) -> None:
-    p1,p2=0,0
-    n+=1
-    m+=1
-    nums1.append(float('inf'))
-    nums2.append(float('inf'))
-    res=[]
-    while p1<m and p2<n:
-        if nums1[p1]>nums2[p2]:
-            res.append(nums2[p2])
-            if p1+1<m and p2+1<n and (nums1[p1+1] >= nums2[p2+1] >= nums1[p1]):
-                p2+=1
-            else:
-                p1+=1   
-        elif nums1[p1]<nums2[p2]:
-            res.append(nums1[p1])
-            if p1+1<m and p2+1<n and (nums2[p2+1] >= nums1[p1+1] >= nums2[p2]):
-                p1+=1
-            else:
-                p2+=1
+    cnt1 = 0
+    cnt2 = 0
+    cnt = 0
+    
+    while cnt1 < m and cnt2 < n:
+        
+        if nums1[cnt] > nums2[cnt2]:
+            for i in range(m + n - 1, cnt, -1):
+                nums1[i] = nums1[i - 1]
+            nums1[cnt] = nums2[cnt2]
+
+            cnt2 += 1
+            cnt += 1
         else:
-            res.append(nums2[p2])
-            res.append(nums1[p1])
-            p1+=1
-            p2+=1 
-    return res        
-print(merge(array1,5,array2,4))        
+            cnt1 += 1
+            cnt += 1
+    
+    while cnt2 < n:
+        
+        for i in range(m + n - 1, cnt, -1):
+            nums1[i] = nums1[i - 1]
+        nums1[cnt] = nums2[cnt2]
+        cnt2 += 1
+        cnt += 1
+merge(array1,3,array2,3)
+print(array1)        
