@@ -1,6 +1,7 @@
-dic = {}
-dic[2] = 5
+n = 4
 
-print(dic[2])
-dic[2]+=1
-print(dic[2])
+arr = [0]*(n-1)
+for i in range (n):
+    if i%2 == 0:
+        arr[i] = 1
+print(arr)
