@@ -1,45 +1,69 @@
-def subsequence(source:str,target:str)->bool:
-    len1 = len(source)
-    left = 0
+_start = "_L__R__R_"
+_target = "L______RR"
 
-    for letter in target:
-        right = left
-        while right < len1:
-            next_letter = chr(((ord(letter)-97+1)%26)+97)
-            if source[right] == letter or source[right] == next_letter:
-                left = right + 1
-                break
-            right += 1
-            if right == len1:
+def canChange(start: str, target: str) -> bool:
+    if start == target:
+        return True
+    waitL = 0   
+    waitR = 0    
+    ref = list(zip(start, target))
+    for curr, goal in zip(start, target):
+        if curr == 'R':
+            if waitL > 0:
                 return False
-    return True
+            waitR += 1  
+        if goal == 'L':
+            if waitR > 0:
+                return False
+            waitL += 1
+        if goal == 'R':
+            if waitR == 0:
+                return False
+            waitR -= 1 
+        if curr == 'L':
+            if waitL == 0:
+                return False
+            waitL -= 1    
+    return waitL == 0 and waitR == 0
 
 
 
-def increment(letter:str)->str:
+# def canChange(initial: str, final: str) -> bool:
+#     lent = len(initial) 
+#     i = lent - 1
+#     j = lent - 1
 
-    asc = ord(letter)
-    print(letter+": "+str(asc))
-    ans = chr(((asc-97+1)%26)+97)
-    print("the Subsequebt is :"+str(ans) )
+#     res = ["_" for i in range(lent)]
+
+#     def CanMoveR(ini:int,fin:int)->bool:
+#         for mov in range(ini+1,fin):
+#             if initial[mov] != "_":
+#                 return False
+#         return True
+
+#     while i >= 0  :
+#         if initial[i] == "R":
+#             while j >= 0:
+#                 if final[j] == "R":
+#                     if CanMoveR(i,j) :
+#                         res[j] = "R"
+#                         j-=1
+#                         print(res)
+#                         break
+#                     else: 
+#                         return False
+#                 j -= 1    
+#         i -= 1
+
+#     result = ""
+#     for i in res:
+#         result+= i
+#     print (res)
+#     print(result)
+#     # return res == final 
 
 
-def canMakeSubsequence(str1, str2):
-    ptr1 ,ptr2 = 0,0
-    len1,len2  = len(str1),len(str2)
 
-    def next_letter(char):
-        return chr(((ord(char)-97-1)%26)+97) 
+print(canChange(_start,_target))
 
-    while ptr1 < len1 and ptr2 < len2:
-        if str1[ptr1] == str2[ptr2] or str1[ptr1] == next_letter(str2[ptr2]):
-            ptr2+=1
-        ptr1+=1
- 
-    return ptr2 == len2
-
-
-
-str_1 = "zc"
-str_2 = "ad"
-print(canMakeSubsequence(str_1,str_2))
+# print(list(zip(start,target)))
