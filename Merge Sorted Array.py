@@ -18,9 +18,7 @@ def merge( nums1: list[int], m: int, nums2: list[int], n: int) -> None:
         else:
             cnt1 += 1
             cnt += 1
-    
     while cnt2 < n:
-        
         for i in range(m + n - 1, cnt, -1):
             nums1[i] = nums1[i - 1]
         nums1[cnt] = nums2[cnt2]
